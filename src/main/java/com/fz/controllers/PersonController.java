@@ -12,13 +12,16 @@ import java.util.List;
 @Controller
 public class PersonController implements PersonMapper {
 
-@Autowired
-  private  PersonMapper personMapper;
+private final PersonMapper personMapper;
 
-  @ResponseBody
+    public PersonController(PersonMapper personMapper) {
+        this.personMapper = personMapper;
+    }
+
+    @ResponseBody
   @RequestMapping("test")
 public String String(){
-    System.out.println("test");
+    System.out.println("test进来了");
     return "test";
 }
 
